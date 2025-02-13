@@ -1,0 +1,26 @@
+<!-- user-list.component.html -->
+<div *ngIf="isLoading" class="loading-spinner">
+  <mat-spinner diameter="50"></mat-spinner> <!-- Angular Material Spinner -->
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!isLoading && !errorMessage">
+  <!-- Material Input for Search -->
+  <mat-form-field appearance="fill" class="search-input">
+    <mat-label>Search by name</mat-label>
+    <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)" placeholder="Search">
+  </mat-form-field>
+
+  <!-- Material List for Users -->
+  <mat-list>
+    <mat-list-item *ngFor="let user of filteredUsers">
+      <h3 mat-line>{{ user.name }}</h3>
+      <p mat-line>{{ user.email }}</p>
+      <p mat-line>{{ user.phone }}</p>
+    </mat-list-item>
+  </mat-list>
+</div>
