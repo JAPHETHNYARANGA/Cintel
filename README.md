@@ -15,9 +15,9 @@ This is an Angular-based application that displays a list of users with their na
 # Installation
 
 1. CLone the Repository
-`git clone https://github.com/your-username/user-list-app.git`
+`https://github.com/JAPHETHNYARANGA/Cintel.git`
 
-`cd user-list-app`
+`cd Cintel`
 
 2. Install Dependencies
 `npm install`
