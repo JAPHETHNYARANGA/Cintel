@@ -7,9 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatInputModule } from '@angular/material/input';  
-import { MatListModule } from '@angular/material/list';    
+import { MatIconModule } from '@angular/material/icon'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
     MatInputModule,
-    MatListModule,   
-    MatProgressSpinnerModule 
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

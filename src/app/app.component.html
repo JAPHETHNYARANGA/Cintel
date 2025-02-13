@@ -1,26 +1,43 @@
-<!-- user-list.component.html -->
+
 <div *ngIf="isLoading" class="loading-spinner">
-  <mat-spinner diameter="50"></mat-spinner> <!-- Angular Material Spinner -->
+  <mat-spinner diameter="50"></mat-spinner>
   <p>Loading...</p>
 </div>
 
 <div *ngIf="errorMessage" class="error-message">
-  {{ errorMessage }}
+  <mat-card class="error-card">
+    <mat-card-content>
+      <mat-icon>error_outline</mat-icon>
+      <p>{{ errorMessage }}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
 
-<div *ngIf="!isLoading && !errorMessage">
-  <!-- Material Input for Search -->
-  <mat-form-field appearance="fill" class="search-input">
+<div *ngIf="!isLoading && !errorMessage" class="user-list-container">
+  <mat-form-field appearance="outline" class="search-input">
     <mat-label>Search by name</mat-label>
     <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)" placeholder="Search">
+    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 
-  <!-- Material List for Users -->
-  <mat-list>
-    <mat-list-item *ngFor="let user of filteredUsers">
-      <h3 mat-line>{{ user.name }}</h3>
-      <p mat-line>{{ user.email }}</p>
-      <p mat-line>{{ user.phone }}</p>
+  <mat-list class="user-list">
+    <mat-list-item *ngFor="let user of filteredUsers" class="user-list-item">
+      <mat-icon mat-list-icon class="user-icon">person</mat-icon>
+      <div class="user-info">
+
+        <div class="user-name">{{ user.name }}</div>
+        <div class="user-detail">{{ user.email }}</div>
+        <div class="user-detail">{{ user.phone }}</div>
+      </div>
+      <button mat-icon-button>
+        <mat-icon>chevron_right</mat-icon>
+      </button>
     </mat-list-item>
   </mat-list>
+
+
+  <div *ngIf="filteredUsers.length === 0" class="no-results">
+    <mat-icon>search_off</mat-icon>
+    <p>No users found</p>
+  </div>
 </div>

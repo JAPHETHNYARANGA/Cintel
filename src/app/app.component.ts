@@ -18,6 +18,11 @@ export class AppComponent implements OnInit{
   constructor(private apiServerService: ApiServerService) { }
 
   ngOnInit(): void {
+    this.loadUsers()
+  }
+
+
+  private loadUsers(): void {
     this.isLoading = true;
     this.apiServerService.getUsers().pipe(
       debounceTime(300), 
@@ -32,6 +37,7 @@ export class AppComponent implements OnInit{
       this.isLoading = false;
     });
   }
+
 
   onSearchChange(query: string): void {
     this.searchQuery = query;
